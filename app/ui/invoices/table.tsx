@@ -31,8 +31,7 @@ export default async function InvoicesTable({
                         className="mr-2 rounded-full"
                         width={28}
                         height={28}
-                        alt={`${invoice.name}'s profile picture`}
-                      />
+                                              />
                       <p>{invoice.name}</p>
                     </div>
                     <p className="text-sm text-gray-500">{invoice.email}</p>
