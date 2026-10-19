@@ -112,14 +112,12 @@ export async function updateInvoice(
 
 // --- DELETE INVOICE ---
 export async function deleteInvoice(id: string) {
-  // Note: Remove any manual throw new Error() you used for testing error.tsx!
   try {
     await sql`DELETE FROM invoices WHERE id = ${id}`;
     revalidatePath('/dashboard/invoices');
-    return { message: 'Deleted Invoice.' };
   } catch (error) {
-    console.error(error);
-    return { message: 'Database Error: Failed to Delete Invoice.' };
+    console.error('Database Error:', error);
+    throw new Error('Failed to Delete Invoice.');
   }
 }
 export async function authenticate(
